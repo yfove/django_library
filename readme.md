@@ -49,3 +49,34 @@ class MyModelName(models.Model):
 
 ```
 
+## dynamic content
+
+``` 
+{{ num_book }}
+# variables and functions
+
+{% extends "base_generic.html%}
+```
+
+## Configure where to find the templates
+
+``` 
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+
+settings of 'APP_DIRS': True is the most important, tells Django to search for templates in a subdirectory of each applicant named "templates" ( this makes it easier to group templates with their associated application for easy re-use)
